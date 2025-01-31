@@ -24,4 +24,4 @@ A blockchain-based platform leveraging Ethereum smart contracts to ensure: 1.Tra
 
 # TECH STACKS USED:
 
-1.Blockchain: Ethereum (Solidity, Ganache, Goerli/Sepolia testnets). 2.Frontend: React.js with web3.js or ethers.js for wallet integration.
+1.Blockchain: Ethereum (Solidity, Sepolia testnets). 2.Frontend: React.js 
