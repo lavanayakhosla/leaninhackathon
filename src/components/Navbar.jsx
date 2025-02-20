@@ -2,23 +2,30 @@ import React from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 
-
-
-const NavBarItem = ({ title, classprops }) => (
-  <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>
+const NavBarItem = ({ title, classprops, onClick }) => (
+  <li className={`mx-4 cursor-pointer ${classprops}`} onClick={onClick}>
+    {title}
+  </li>
 );
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
 
+  const handleScrollToNGOs = () => {
+    const ngosSection = document.getElementById("ngos");
+    ngosSection.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
-      
       <ul className="text-black md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {["NGOs", "Success Stories", "Donate"].map((item, index) => (
-          <NavBarItem key={item + index} title={item} />
+        {["NGOs", "Donate"].map((item, index) => (
+          <NavBarItem
+            key={item + index}
+            title={item}
+            onClick={item === "NGOs" ? handleScrollToNGOs : null} // Handle scrolling for "NGOs"
+          />
         ))}
-       
       </ul>
       <div className="flex relative">
         {!toggleMenu && (
@@ -33,8 +40,15 @@ const Navbar = () => {
             flex flex-col justify-start items-end rounded-md blue-glassmorphism text-black animate-slide-in"
           >
             <li className="text-xl text-black w-full my-2"><AiOutlineClose onClick={() => setToggleMenu(false)} /></li>
-            {["NGOs", "Success Stories", "Donate"].map(
-              (item, index) => <NavBarItem key={item + index} title={item} classprops="my-2 text-lg" />,
+            {["NGOs",  "Donate"].map(
+              (item, index) => (
+                <NavBarItem
+                  key={item + index}
+                  title={item}
+                  classprops="my-2 text-lg"
+                  onClick={item === "NGOs" ? handleScrollToNGOs : null} // Handle scrolling for "NGOs"
+                />
+              ),
             )}
           </ul>
         )}
