@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import { Navbar, Footer, Services, Transactions, Welcome } from "./components";
 import NGOs from "./pages/NGOs";
 import EthereumCard from "./components/EthereumCard"; 
+import Login from "./components/login"
+import SignUp from "./components/signup"
+import SchedulePickup from "./components/scheduleAPickUp";
 
 const App = () => {
   return (
@@ -20,6 +23,9 @@ const App = () => {
           } />
           <Route path="/ngos" element={<NGOs />} />
           <Route path="/ethereum-donation" element={<EthereumCard />} />
+          <Route path = "/login" element={<Login/>}/>
+          <Route path = "/signup" element={<SignUp/>}/>
+          <Route path = "/scheduleapickup" element={<SchedulePickup/>}/>
         </Routes>
       </div>
       <Footer />

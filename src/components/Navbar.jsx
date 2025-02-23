@@ -5,9 +5,11 @@ const Navbar = () => {
     <nav className="w-full bg-black p-4">  
       <ul className="text-white md:flex hidden list-none flex-row justify-center items-center gap-8">  
         <li><Link to="/" className="px-4 py-2 hover:underline">Home</Link></li>
-        <li><Link to="/services" className="px-4 py-2 hover:underline">Schedule a PickUp</Link></li>
+        <li><Link to="/scheduleapickup" className="px-4 py-2 hover:underline">Schedule a PickUp</Link></li>
         <li><Link to="/ethereum-donation" className="px-4 py-2 hover:underline">Donate</Link></li>  {/* ✅ Fixed Route */}
         <li><Link to="/ngos" className="px-4 py-2 hover:underline">NGOs</Link></li>  
+        <li><Link to="/login" className="px-4 py-2 hover:underline">Login</Link></li> 
+        <li><Link to="/signup" className="px-4 py-2 hover:underline">SignUp</Link></li> 
       </ul>
     </nav>
   );
