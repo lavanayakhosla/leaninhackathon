@@ -1,16 +1,30 @@
-import { Navbar, Welcome, Footer, Services, Transactions, NGOs } from "./components";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { Navbar, Footer, Services, Transactions, Welcome } from "./components";
+import NGOs from "./pages/NGOs";
+import EthereumCard from "./components/EthereumCard"; 
 
-const App = () => (
-  <div className="min-h-screen">
-    <div className="gradient-bg-welcome">
+const App = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <Welcome />
+      <div className="flex-grow">
+        <Routes>
+          {/* ✅ Ensure Home Page Includes Welcome, Services, and Transactions */}
+          <Route path="/" element={
+            <>
+              <Welcome />
+              <Services />
+              <Transactions />
+            </>
+          } />
+          <Route path="/ngos" element={<NGOs />} />
+          <Route path="/ethereum-donation" element={<EthereumCard />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
-    <Services />
-    <Transactions />
-    <NGOs /> 
-    <Footer />
-  </div>
-);
+  );
+};
 
 export default App;
