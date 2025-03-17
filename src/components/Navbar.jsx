@@ -33,14 +33,12 @@ const Navbar = () => {
     <nav className="w-full flex bg-black text-white md:justify-center justify-between items-center p-4 fixed top-0 left-0 right-0 z-50">
       {/* Desktop Navbar */}
       <ul className="md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {/* Static Links */}
         <NavBarItem title="Home" to="/" />
         <NavBarItem title="Schedule a PickUp" to="/scheduleapickup" />
         <NavBarItem title="Donate" to="/ethereum-donation" />
         <NavBarItem title="NGOs" to="/ngos" />
         <NavBarItem title="Login" to="/login" />
         <NavBarItem title="SignUp" to="/signup" />
-      
       </ul>
 
       {/* Mobile Navbar */}
@@ -49,34 +47,31 @@ const Navbar = () => {
           <HiMenuAlt4 fontSize={28} className="md:hidden cursor-pointer" onClick={() => setToggleMenu(true)} />
         )}
         {toggleMenu && (
-          <AiOutlineClose fontSize={28} className="md:hidden cursor-pointer" onClick={() => setToggleMenu(false)} />
+          <AiOutlineClose fontSize={28} className="md:hidden cursor-pointer text-white" onClick={() => setToggleMenu(false)} />
         )}
         {toggleMenu && (
           <ul
             className="z-10 fixed top-0 right-0 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none
-            flex flex-col justify-start items-end rounded-md animate-slide-in"
+            flex flex-col justify-start items-end rounded-md animate-slide-in bg-black text-white"
           >
-            <li className="text-xl w-full my-2">
+            <li className="text-xl w-full my-2 text-white">
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
             </li>
-            {/* Mobile Links */}
-            <NavBarItem title="Home" to="/" classprops="my-2 text-lg" />
-            <NavBarItem title="Schedule a PickUp" to="/scheduleapickup" classprops="my-2 text-lg" />
-            <NavBarItem title="Donate" to="/ethereum-donation" classprops="my-2 text-lg" />
-            <NavBarItem title="NGOs" to="/ngos" classprops="my-2 text-lg" />
-            <NavBarItem title="Login" to="/login" classprops="my-2 text-lg" />
-            <NavBarItem title="SignUp" to="/signup" classprops="my-2 text-lg" />
+            <NavBarItem title="Home" to="/" classprops="my-2 text-lg text-white" />
+            <NavBarItem title="Schedule a PickUp" to="/scheduleapickup" classprops="my-2 text-lg text-white" />
+            <NavBarItem title="Donate" to="/ethereum-donation" classprops="my-2 text-lg text-white" />
+            <NavBarItem title="NGOs" to="/ngos" classprops="my-2 text-lg text-white" />
+            <NavBarItem title="Login" to="/login" classprops="my-2 text-lg text-white" />
+            <NavBarItem title="SignUp" to="/signup" classprops="my-2 text-lg text-white" />
 
-            {/* Mobile Scroll Links */}
             {[
               { title: "Donate", sectionId: "welcome" },
-      
               { title: "Success Stories", sectionId: "success-stories" },
             ].map(({ title, sectionId }, index) => (
               <NavBarItem
                 key={title + index}
                 title={title}
-                classprops="my-2 text-lg"
+                classprops="my-2 text-lg text-white"
                 scrollTo={() => scrollToSection(sectionId)}
               />
             ))}
@@ -88,4 +83,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
